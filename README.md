@@ -10,7 +10,7 @@ Blogging API
 
  **UserController**
 
-  Sign Up
+  Sign Up 
 
   Endpoint: /blog/signup
   Method: POST
