@@ -12,75 +12,61 @@ Blogging API
 
   Sign Up 
 
-  Endpoint: /blog/signup
+  Endpoint: user/signUp
   Method: POST
   Request Body: SignUpInputDto
   Description: Creates a new user account.
-  Response: SignUpOutputDto
-  HTTP Status Codes:
-  200 (OK) - User account successfully created.
-  400 (Bad Request) - Invalid request or missing required fields.
 
   Sign In
 
-  Endpoint: /blog/signin
+  Endpoint:ser/signIn/{email}/{password}
   Method: POST
   Request Body: SignInInputDto
   Description: Authenticates and signs in a user.
-  Response: SignInOutputDto
-  HTTP Status Codes:
-  200 (OK) - User successfully signed in.
-  401 (Unauthorized) - Invalid credentials.
-  
-  
+
+ Sign out
+
+  Endpoint:user/signOut
+  Method: POST
+  Request Body: SignInInputDto
+  Description: Authenticates and signs in a user.
+ 
   Follow User
 
-  Endpoint: /blog/follow/{email}/{token}/{otherId}
+  Endpoint:follow/user/{targetUserId}
   Method: POST
   Description: Allows a user to follow another user.
   Request Parameters:
   email: Email of the authenticated user.
   token: Authentication token of the user.
   otherId: ID of the user to be followed.
-  Response: String
-  HTTP Status Codes:
-  200 (OK) - User successfully followed.
-  400 (Bad Request) - Error occurred while following the user.
-  403 (Forbidden) - Invalid user or authentication failed.
-  
-  
+ 
 **PostController**
 
 Add Post
 
-  Endpoint: /post/add/{email}/{token}
+  Endpoint: post/email/tokenValue
   Method: POST
   Request Body: BlogPost
   Description: Creates a new blog post.
   Request Parameters:
   email: Email of the authenticated user.
   token: Authentication token of the user.
-  Response: String
-  HTTP Status Codes:
-  200 (OK) - Post created successfully.
-  403 (Forbidden) - Invalid user or authentication failed.
+ 
   
 Get All Posts
 
-  Endpoint: /post/all/{email}/{token}
+  Endpoint: post/email/tokenValue/{postId}
   Method: GET
   Description: Retrieves all blog posts.
   Request Parameters:
   email: Email of the authenticated user.
   token: Authentication token of the user.
-  Response: List of BlogPost
-  HTTP Status Codes:
-  200 (OK) - Posts fetched successfully.
-  403 (Forbidden) - Invalid user or authentication failed.
+
   
 Update Post Data
 
-  Endpoint: /post/update/{postId}/{data}/{email}/{token}
+  Endpoint: post/email/tokenValue/{postId}/{caption}
   Method: PUT
   Description: Updates the data of a blog post.
   Request Parameters:
@@ -88,24 +74,18 @@ Update Post Data
   data: New data for the post.
   email: Email of the authenticated user.
   token: Authentication token of the user.
-  Response: String
-  HTTP Status Codes:
-  200 (OK) - Post data updated successfully.
-  403 (Forbidden) - Invalid user or authentication failed.
+ 
   
 Delete Post by ID
 
-  Endpoint: /post/delete/{postId}/{email}/{token}
+  Endpoint:post/email/tokenValue/{postId}
   Method: DELETE
   Description: Deletes a blog post by its ID.
   Request Parameters:
   postId: ID of the post to be deleted.
   email: Email of the authenticated user.
   token: Authentication token of the user.
-  Response: String
-  HTTP Status Codes:
-  200 (OK) - Post deleted successfully.
-  403 (Forbidden) - Invalid user or authentication failed.
+ 
   
 **CommentController**
 
